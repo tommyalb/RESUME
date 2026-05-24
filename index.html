@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Syukran - Website</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- fonts reference -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'oswald': ['"Oswald"', 'sans-serif'],
+                        'inter': ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-bg': '#030812',
+                        'card-bg': '#0A1320',
+                        'cyan-glow': '#00f0ff',
+                    },
+                    backgroundImage: {
+                        'radial-glow': 'radial-gradient(circle at center, rgba(0, 240, 255, 0.15) 0%, rgba(3, 8, 18, 0) 70%)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #030812;
+            color: #d1d5db; /* gray-300 */
+        }
+        
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .nav-link.active {
+            background-color: rgba(0, 240, 255, 0.15);
+            color: #00f0ff;
+            border-color: rgba(0, 240, 255, 0.4);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030812; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #374151; }
+        
+      
+        .glass-card {
+            background: linear-gradient(180deg, rgba(10, 19, 32, 0.8) 0%, rgba(3, 8, 18, 0.9) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="font-inter antialiased selection:bg-cyan-glow selection:text-dark-bg relative">
+
+    <!-- Ambient Background Glows -->
+    <div class="noise"></div>
+    <div class="fixed top-[-20%] left-[-10%] w-[800px] h-[800px] bg-radial-glow pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-radial-glow pointer-events-none z-0 opacity-50"></div>
+
+    <div class="fixed top-6 z-50 flex justify-center w-full px-4">
+        <div class="flex gap-2 bg-[#0A1320]/80 backdrop-blur-md p-1.5 rounded-full border border-white/10 shadow-lg" id="nav-menu">
+            <a href="#profil" class="nav-link active px-6 py-2 rounded-full text-xs font-bold text-gray-400 hover:text-white border border-transparent transition-all tracking-wider uppercase">Profil</a>
+            <a href="#project" class="nav-link px-6 py-2 rounded-full text-xs font-bold text-gray-400 hover:text-white border border-transparent transition-all tracking-wider uppercase">Project</a>
+            <a href="#contact" class="nav-link px-6 py-2 rounded-full text-xs font-bold text-gray-400 hover:text-white border border-transparent transition-all tracking-wider uppercase">Contact Person</a>
+        </div>
+    </div>
+
+ 
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 flex flex-col gap-32">
+
+       
+        <section id="hero" class="flex flex-col md:flex-row items-center justify-center gap-12 min-h-[60vh]">
+            <div class="relative flex-shrink-0">
+                <div class="absolute inset-0 bg-[#7a0d1b] rounded-r-full -left-20 scale-110 z-0"></div>
+
+                <div class="relative z-10 w-48 h-48 sm:w-64 sm:h-64 bg-[#0A1320] rounded-full border border-white/20 shadow-[0_0_30px_rgba(0,0,0,0.8)] flex items-center justify-center overflow-hidden">
+                    
+                    <img src="IMG_0973.jpg" 
+                        alt="Profile Photo"
+                        class="w-full h-full object-cover rounded-full" />
+
+                </div>
+            </div>
+            
+            <div class="text-center md:text-left z-10">
+                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-oswald text-white font-bold tracking-tight uppercase flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
+                    AHMAD SYUKRAN <span class="text-gray-600 text-4xl sm:text-6xl lg:text-7xl font-normal">2026</span>
+                </h1>
+                <div class="mt-4 flex items-center justify-center md:justify-start gap-3">
+                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                    <p class="text-sm sm:text-base font-bold tracking-widest text-cyan-glow uppercase">Electronic Engineering Graduate</p>
+                </div>
+                
+                <div class="mt-12 flex flex-col gap-2 text-xs text-gray-500 uppercase tracking-widest font-semibold items-center md:items-start">
+                    <a href="#profil" class="hover:text-cyan-glow transition-colors">Start</a>
+                    <a href="#project" class="hover:text-cyan-glow transition-colors">Options</a>
+                    <a href="#contact" class="hover:text-cyan-glow transition-colors">Exit</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="profil" class="scroll-mt-32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left Profile Visuals -->
+                <div class="lg:col-span-4 flex flex-col items-center text-center">
+                    <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Hello, I am</p>
+                    <h2 class="text-3xl font-oswald text-white uppercase tracking-wide mb-8">Ahmad Syukran</h2>
+                    
+                    <div class="relative w-64 h-80 flex items-center justify-center">
+    
+                <div class="absolute inset-0 bg-cyan-glow/20 blur-[60px] rounded-full z-0"></div>
+    
+                <div class="relative z-10 w-full h-full bg-gradient-to-b from-[#111e33] to-[#0A1320] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+
+                <img src="IMG_4798.jpg"
+                alt="Profile Photo"
+                class="w-full h-full object-cover object-center" />
+
+            </div>
+
+        </div>
+                </div>
+
+                <div class="lg:col-span-8 flex flex-col gap-10">
+                    
+                    <!-- About Me -->
+                    <div>
+                        <h3 class="text-2xl font-oswald text-white uppercase tracking-wider mb-4 border-b border-white/10 pb-2 inline-block">About Me</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed font-light">
+                            Versatile electronic engineering graduate with extensive experience in mentoring sessions focused on IoT events. Proficient in computer skills, including Arduino and circuit design, with a talent for developing effective strategies. Passionate about pursuing a career as a lecturer or engineer to inspire and build the next generation of technology. Available to start working immediately.
+                        </p>
+                    </div>
+
+                    <!-- Quick Skills & Software Icons -->
+                    <div>
+                        <h3 class="text-2xl font-oswald text-white uppercase tracking-wider mb-4 border-b border-white/10 pb-2 inline-block">Core Technologies</h3>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center gap-2 bg-[#0A1320] border border-white/5 px-4 py-2 rounded-xl hover:border-cyan-glow/50 hover:text-cyan-glow transition-colors cursor-default">
+                                <i data-lucide="cpu" class="w-5 h-5"></i> <span class="text-sm font-semibold">Embedded Systems</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-[#0A1320] border border-white/5 px-4 py-2 rounded-xl hover:border-cyan-glow/50 hover:text-cyan-glow transition-colors cursor-default">
+                                <i data-lucide="circuit-board" class="w-5 h-5"></i> <span class="text-sm font-semibold">IoT & Automation</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-[#0A1320] border border-white/5 px-4 py-2 rounded-xl hover:border-cyan-glow/50 hover:text-cyan-glow transition-colors cursor-default">
+                                <i data-lucide="pen-tool" class="w-5 h-5"></i> <span class="text-sm font-semibold">AutoCAD & PCB Design</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-[#0A1320] border border-white/5 px-4 py-2 rounded-xl hover:border-cyan-glow/50 hover:text-cyan-glow transition-colors cursor-default">
+                                <i data-lucide="terminal" class="w-5 h-5"></i> <span class="text-sm font-semibold">C/C++ & Python</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- Education -->
+                        <div>
+                            <h3 class="text-xl font-oswald text-white uppercase tracking-wider mb-4">Education</h3>
+                            <div class="space-y-4 relative before:absolute before:inset-0 before:ml-2 before:h-full before:w-0.5 before:bg-white/10">
+                                <div class="relative pl-6">
+                                    <div class="absolute left-1.5 top-1.5 w-1.5 h-1.5 bg-cyan-glow rounded-full shadow-[0_0_8px_#00f0ff]"></div>
+                                    <p class="text-xs text-gray-500 mb-0.5">Current</p>
+                                    <p class="text-sm font-semibold text-white">Degree in Eng. Technology</p>
+                                    <p class="text-xs text-cyan-glow mt-1">UTeM • GPA: 3.88</p>
+                                </div>
+                                <div class="relative pl-6">
+                                    <div class="absolute left-1.5 top-1.5 w-1.5 h-1.5 bg-white/30 rounded-full"></div>
+                                    <p class="text-xs text-gray-500 mb-0.5">2021 - 2024</p>
+                                    <p class="text-sm font-semibold text-white">Diploma Electronic Eng.</p>
+                                    <p class="text-xs text-gray-400 mt-1">UTeM • CGPA: 3.73</p>
+                                </div>
+                                <div class="relative pl-6">
+                                    <div class="absolute left-1.5 top-1.5 w-1.5 h-1.5 bg-white/30 rounded-full"></div>
+                                    <p class="text-xs text-gray-500 mb-0.5">2019 - 2021</p>
+                                    <p class="text-sm font-semibold text-white">Science Stream, SPM</p>
+                                    <p class="text-xs text-gray-400 mt-1">MRSM Mersing • CGPA: 3.30</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Languages -->
+                        <div>
+                            <h3 class="text-xl font-oswald text-white uppercase tracking-wider mb-4">Language [Communication]</h3>
+                            <div class="space-y-3 font-mono text-xs">
+                                <div class="flex justify-between items-center text-gray-300">
+                                    <span>MALAY (NATIVE)</span>
+                                    <span class="text-cyan-glow">100%</span>
+                                </div>
+                                <div class="w-full bg-[#0A1320] h-1 rounded-full"><div class="bg-cyan-glow h-1 rounded-full" style="width: 100%"></div></div>
+                                
+                                <div class="flex justify-between items-center text-gray-300 pt-2">
+                                    <span>ENGLISH (INT.)</span>
+                                    <span class="text-cyan-glow">75%</span>
+                                </div>
+                                <div class="w-full bg-[#0A1320] h-1 rounded-full"><div class="bg-cyan-glow h-1 rounded-full" style="width: 75%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-24 pt-12 border-t border-white/5">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-oswald text-white uppercase tracking-wider mb-2">Skills</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Hardware & Embedded -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col gap-4">
+                        <h4 class="font-oswald text-xl text-white uppercase tracking-wider flex items-center gap-2 mb-2">
+                            <i data-lucide="cpu" class="w-5 h-5 text-cyan-glow"></i> Hardware & Embedded
+                        </h4>
+                        <div class="flex flex-col gap-3">
+                            <!-- Skill Item -->
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Embedded Systems Dev.</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Microcontroller (PIC/ESP32)</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Electronic Circuit Design</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">PCB Design, ECAD & Fab.</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Digital Logic Design</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Sensor Integration & DAQ</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Hardware Diagnostics</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Signal & Network Analysis</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IoT & Automation -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col gap-4">
+                        <h4 class="font-oswald text-xl text-white uppercase tracking-wider flex items-center gap-2 mb-2">
+                            <i data-lucide="radio" class="w-5 h-5 text-cyan-glow"></i> IoT & Automation
+                        </h4>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">IoT System Dev & Cloud</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Industrial Automation</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Industrial Pneumatics</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Smart Traffic Systems</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Wireless Comms (Wi-Fi/XBee)</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Motor Control & Auto.</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Semiconductor Mfg Basics</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Industrial Processes</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Programming Languages -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col gap-4">
+                        <h4 class="font-oswald text-xl text-white uppercase tracking-wider flex items-center gap-2 mb-2">
+                            <i data-lucide="terminal" class="w-5 h-5 text-cyan-glow"></i> Programming
+                        </h4>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">C / Embedded C</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">C++ (Arduino)</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Python</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">PHP</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">HTML / CSS</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">PLC Ladder Logic</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">JavaScript</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-gray-500/10 text-gray-400 border border-gray-500/20">BEG</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">SQL</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-gray-500/10 text-gray-400 border border-gray-500/20">BEG</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Software & Tools -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col gap-4">
+                        <h4 class="font-oswald text-xl text-white uppercase tracking-wider flex items-center gap-2 mb-2">
+                            <i data-lucide="code" class="w-5 h-5 text-cyan-glow"></i> Software & Tools
+                        </h4>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Arduino IDE & MakeCode</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Tech Drafting & AutoCAD</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Schematic Interpretation</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Proteus & MPLAB X IDE</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">CX-Programmer (OMRON)</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Edge Impulse ML</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">CapCut, Canva, Filmora</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Core Strengths -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col gap-4 md:col-span-2 lg:col-span-2">
+                        <h4 class="font-oswald text-xl text-white uppercase tracking-wider flex items-center gap-2 mb-2">
+                            <i data-lucide="zap" class="w-5 h-5 text-cyan-glow"></i> Engineering Strengths
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Leadership & Teamwork</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Tech Documentation & Reports</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Critical Thinking & Problem Solving</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Engineering Ethics & Safety</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Creative Engineering Design</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Time Management</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Prototype Dev & Workshop</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Tech Presentation</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Engineering Mathematics</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">ADV</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs text-gray-300 font-medium tracking-wide">Research & Development</span>
+                                <span class="text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">INT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PROJECT / EXPERIENCE SECTION -->
+        <section id="project" class="scroll-mt-32">
+            <div class="flex items-center gap-4 mb-10 justify-center">
+                <h2 class="text-3xl md:text-5xl font-oswald text-white uppercase tracking-wider">Recap Project <span class="text-gray-600">2025</span></h2>
+                <span class="text-[10px] bg-white/10 text-gray-400 px-2 py-0.5 rounded font-bold tracking-widest border border-white/5">EXP & PROJ</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- AWARD HIGHLIGHT -->
+                <div class="md:col-span-2 glass-card p-6 md:p-10 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute right-0 top-0 w-64 h-64 bg-yellow-500/10 blur-[50px] rounded-full group-hover:bg-yellow-500/20 transition-all duration-500"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+                        <div class="w-24 h-24 md:w-32 md:h-32 rounded-full border border-yellow-500/30 bg-[#15130b] flex items-center justify-center flex-shrink-0 shadow-[0_0_30px_rgba(234,179,8,0.15)] group-hover:shadow-[0_0_40px_rgba(234,179,8,0.3)] transition-shadow">
+                            <span class="text-4xl md:text-5xl font-oswald text-yellow-500 font-bold">3rd</span>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <span class="text-xs font-bold tracking-widest text-yellow-600 uppercase border border-yellow-600/30 bg-yellow-600/10 px-3 py-1 rounded-full mb-3 inline-block">Dec 2024 - Apr 2025</span>
+                            <h3 class="text-3xl md:text-5xl font-oswald text-white uppercase tracking-tight mb-2">
+                                Bronze Medal <span class="text-gray-500">IIDEX 2025</span>
+                            </h3>
+                            <p class="text-sm font-semibold text-yellow-500 mb-4">Universiti Teknikal Malaysia Melaka (UTeM)</p>
+                            <p class="text-sm text-gray-400 leading-relaxed font-light">
+                                Awarded the Bronze Medal for the invention and innovation entitled <span class="text-white font-medium">"Innovative Clean Energy Harvesting from Air Conditioners"</span>. Collaborated with a team of researchers to develop sustainable energy solutions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 1 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col group">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-oswald text-2xl text-white uppercase tracking-wide">IT Technician</h3>
+                            <p class="text-xs text-cyan-glow mt-1 uppercase tracking-widest">2023 - 2024</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="text-gray-500 group-hover:text-cyan-glow transition-colors"></i>
+                    </div>
+                    <p class="text-sm font-semibold text-white mb-3">Etech System Automation Sdn Bhd</p>
+                    <p class="text-sm text-gray-400 leading-relaxed font-light mb-6 flex-grow">
+                        Skilled in the installation and repair of diverse systems, including CCTV surveillance, alarm, intercom, auto gate, door access, and MATV systems, providing comprehensive IT solutions.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="text-[10px] uppercase tracking-widest border border-white/10 bg-white/5 px-2 py-1 rounded text-gray-300">IT Solutions</span>
+                        <span class="text-[10px] uppercase tracking-widest border border-white/10 bg-white/5 px-2 py-1 rounded text-gray-300">Hardware</span>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col group">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-oswald text-2xl text-white uppercase tracking-wide">Customer Service & Planner</h3>
+                            <p class="text-xs text-cyan-glow mt-1 uppercase tracking-widest">Work Experience</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="text-gray-500 group-hover:text-cyan-glow transition-colors"></i>
+                    </div>
+                    <p class="text-sm font-semibold text-white mb-3">Safeguards Secure Solution Sdn Bhd</p>
+                    <p class="text-sm text-gray-400 leading-relaxed font-light mb-6 flex-grow">
+                        Organized planner coordinating trips for 12 teams, ensuring effective communication with technicians. Scheduled services for ATM safe doors and managed logistics with accuracy.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="text-[10px] uppercase tracking-widest border border-white/10 bg-white/5 px-2 py-1 rounded text-gray-300">Logistics</span>
+                        <span class="text-[10px] uppercase tracking-widest border border-white/10 bg-white/5 px-2 py-1 rounded text-gray-300">Planning</span>
+                    </div>
+                </div>
+
+                <!-- Project 1 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col group relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 opacity-5"><i data-lucide="cpu" class="w-32 h-32"></i></div>
+                    <div class="flex justify-between items-start mb-6 relative z-10">
+                        <div>
+                            <h3 class="font-oswald text-2xl text-white uppercase tracking-wide">INOTEK Security Auto.</h3>
+                            <p class="text-xs text-cyan-glow mt-1 uppercase tracking-widest">2023</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="text-gray-500 group-hover:text-cyan-glow transition-colors"></i>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed font-light mb-6 flex-grow relative z-10">
+                        Final project demonstration under the security automation theme. Required critical thinking and rationality to answer panel questions. Done with Arduino knowledge, IoT, and circuit making.
+                    </p>
+                    <div class="flex gap-2 relative z-10">
+                        <span class="text-[10px] uppercase tracking-widest border border-cyan-glow/30 text-cyan-glow bg-cyan-glow/5 px-2 py-1 rounded">Arduino</span>
+                        <span class="text-[10px] uppercase tracking-widest border border-cyan-glow/30 text-cyan-glow bg-cyan-glow/5 px-2 py-1 rounded">IoT</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col group relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 opacity-5"><i data-lucide="users" class="w-32 h-32"></i></div>
+                    <div class="flex justify-between items-start mb-6 relative z-10">
+                        <div>
+                            <h3 class="font-oswald text-2xl text-white uppercase tracking-wide">IoT Challenge Mentor</h3>
+                            <p class="text-xs text-cyan-glow mt-1 uppercase tracking-widest">2022</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="text-gray-500 group-hover:text-cyan-glow transition-colors"></i>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed font-light mb-6 flex-grow relative z-10">
+                        Mentored secondary scholars on constructing circuits using STM32 boards. Transferred electronic knowledge and built communication skills in a hands-on knowledge transfer program.
+                    </p>
+                    <div class="flex gap-2 relative z-10">
+                        <span class="text-[10px] uppercase tracking-widest border border-cyan-glow/30 text-cyan-glow bg-cyan-glow/5 px-2 py-1 rounded">STM32</span>
+                        <span class="text-[10px] uppercase tracking-widest border border-cyan-glow/30 text-cyan-glow bg-cyan-glow/5 px-2 py-1 rounded">Mentoring</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="scroll-mt-32 border-t border-white/5 pt-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Profile & Socials -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left gap-8">
+                    <div class="flex items-center gap-6">
+                        <div class="w-24 h-24 rounded-full bg-[#0A1320] border-2 border-white/10 flex items-center justify-center overflow-hidden">
+                            <span class="font-oswald text-2xl text-gray-500">AS</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-oswald text-white uppercase tracking-widest">Contact Me</h3>
+                            <p class="text-xs text-cyan-glow mt-1 uppercase tracking-widest font-mono">Available 2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col gap-4 w-full max-w-xs">
+                        <a href="mailto:fightgo000@gmail.com" class="flex items-center gap-4 text-sm text-gray-400 hover:text-white transition-colors group">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-cyan-glow/50 group-hover:shadow-[0_0_15px_rgba(0,240,255,0.2)] transition-all">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </div>
+                            fightgo000@gmail.com
+                        </a>
+                        <a href="tel:01121768278" class="flex items-center gap-4 text-sm text-gray-400 hover:text-white transition-colors group">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-cyan-glow/50 group-hover:shadow-[0_0_15px_rgba(0,240,255,0.2)] transition-all">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            011-2176-8278
+                        </a>
+                        <a href="https://www.linkedin.com/in/ahmad-syukran-822b56248" target="_blank" class="flex items-center gap-4 text-sm text-gray-400 hover:text-white transition-colors group">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-cyan-glow/50 group-hover:shadow-[0_0_15px_rgba(0,240,255,0.2)] transition-all">
+                                <i data-lucide="linkedin" class="w-4 h-4"></i>
+                            </div>
+                            Ahmad Syukran
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Thank You Text -->
+                <div class="flex flex-col items-center md:items-end text-center md:text-right">
+                    <h2 class="text-6xl md:text-8xl font-oswald text-white uppercase tracking-tighter leading-none mb-2">Thank You</h2>
+                    <h2 class="text-6xl md:text-8xl font-oswald text-gray-700 uppercase tracking-tighter leading-none">2025</h2>
+                    
+                    <!-- Small decorative element mimicking the tape/hand from the reference footer -->
+                    <div class="mt-10 flex gap-4 text-gray-600">
+                        <i data-lucide="zap" class="w-8 h-8 opacity-50"></i>
+                        <i data-lucide="box" class="w-8 h-8 opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scroll Spy Logic for Navigation Pills -->
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".nav-link");
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 300) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach((link) => {
+                    link.classList.remove("active", "text-white", "border-cyan-glow/40", "bg-cyan-glow/15");
+                    link.classList.add("text-gray-400", "border-transparent");
+                    
+                    if (link.getAttribute("href") === `#${current}`) {
+                        link.classList.remove("text-gray-400", "border-transparent");
+                        link.classList.add("active", "text-white", "border-cyan-glow/40", "bg-cyan-glow/15");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
